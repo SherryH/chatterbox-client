@@ -4,7 +4,10 @@ var app = {
   server: 'https://api.parse.com/',
 
   init: function() {
-
+    $(document).ready(function() {
+      $('#main').find('.username').click(app.handleUsernameClick);
+      $('#send .submit').submit(app.handleSubmit);
+    });
   },
   send: function(message) {
     $.ajax({
@@ -34,12 +37,26 @@ var app = {
   },
 
   renderMessage: function(message) {
-    $('#chats').append('<div>' + message + '</div>');
+    var $userMsg =  $('<div/>').append($('<div class="username"/>').text(message.username)).append ($('<div class="msg"/>').text(message.text));
+    // $('#chats').append($user);
+
+    $('#chats').append( $userMsg );
   },
 
   renderRoom: function(roomName) {
-    $('#roomSelect').append('<option value="'+roomName+'">' + roomName + '</option>');
+    $('#roomSelect').append('<option value="' + roomName + '">' + roomName + '</option>');
+  },
 
+  handleUsernameClick: function() {
+
+  },
+
+  handleSubmit: function() {
+    // console.log('at handleSubmit');
+    // $('#send .submit').trigger('submit');
   },
 };
 
+// $(document).ready(function() {
+//   app.init();
+// });
