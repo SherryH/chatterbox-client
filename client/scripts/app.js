@@ -37,7 +37,7 @@ var app = {
   },
 
   renderMessage: function(message) {
-    var $userMsg =  $('<div/>').append($('<div class="username"/>').text(message.username)).append ($('<div class="msg"/>').text(message.text));
+    var $userMsg = $('<div/>').append($('<div class="username"/>').text(message.username)).append ($('<div class="msg"/>').text(message.text));
     // $('#chats').append($user);
 
     $('#chats').append( $userMsg );
@@ -57,6 +57,4 @@ var app = {
   },
 };
 
-// $(document).ready(function() {
-//   app.init();
-// });
+
