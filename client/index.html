@@ -32,10 +32,21 @@
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message">
         <input type="submit" name="submit" class="submit">
+<!--         <span class="spinner">
+          <img src="images/spiffygif_46x46.gif" alt="">
+        </span> -->
       </form>
-
-
     </div>
     <div id="chats"></div>
+    <script>
+      $(document).ready(()=>{
+        app.init();
+        app.fetch();
+        // setInterval(()=>{
+        //   window.location.reload(true);
+        // },60000);
+      });
+    </script>
+
   </body>
 </html>
