@@ -32,6 +32,7 @@ var app = {
       contentType: 'application/json',
       success: data => {
         console.log('chatterbox: Message sent');
+        $('#message').val(''); // added
       },
       error: data => {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
@@ -46,6 +47,7 @@ var app = {
       contentType: 'json',
 
       success: data => {
+        app.clearMessages(); //added
         console.log('chatterbox: received');
         _.each(data.results, item => {
           // app.renderMessage(item);
@@ -81,7 +83,7 @@ var app = {
   filterMessageByRoom: (roomname, message) =>{
     //only render room when the roomname is the selected room
     //if no room is specified, display all message
-    console.log('roomname',roomname);
+    console.log('roomname', roomname);
     if (message.roomname === roomname) {
       console.log('before rendering');
       app.renderMessage(message);
@@ -109,9 +111,11 @@ var app = {
       console.log('My sent2');
       app.send(message);
     }
-    // event.preventDefault();
+    event.preventDefault(); //uncommented
     // $('#send .submit').trigger('submit');
   },
 };
+
+//renderRoomList function // renderRoomList everytime we receive new request
 
 
